@@ -23,7 +23,12 @@
      <div class="icons">
         <a href="#" class="fas fa-heart heart-icon"></a>
 
-        <a href="#products" class="fas fa-shopping-cart"></a>
+        <div class="icons">
+            <a href="#" id="cart-icon">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
         <a href="#contact" class="fas fa-user"></a>
      </div>
     </header>
@@ -69,7 +74,7 @@
                     <img src="images/scrub.png" alt="Clean Scrub">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a class="add-to-cart cart-btn">Add to Cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -85,7 +90,7 @@
                     <img src="images/spray.png" alt="Clean Spray">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -101,7 +106,7 @@
                     <img src="images/gloves.png" alt="Clean Gloves">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -117,7 +122,7 @@
                     <img src="images/pumicestonetoilet.png" alt="Clean Pumice Stone for Toilet">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -133,7 +138,7 @@
                     <img src="images/toiletcleaner.png" alt="Clean Toilet Cleaner">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -149,7 +154,7 @@
                     <img src="images/brush.png" alt="Clean Brush">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -165,7 +170,7 @@
                     <img src="images/stainlesssteel.png" alt="Clean Stainless Steel Cleaner">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -181,7 +186,7 @@
                     <img src="images/kitchencloth.png" alt="Clean Kitchen Cloth">
                     <div class="icons">
                         <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
+                        <a  class="add-to-cart cart-btn">add to cart</a>
                         <a href="#" class="fas fa-share"></a>
                     </div>
                 </div>
@@ -278,7 +283,18 @@
         </div>
       </section>
       <!--footer-->
-      <script>document.addEventListener('DOMContentLoaded', () => {
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const heartIcons = document.querySelectorAll('.heart-icon');
+
+    heartIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            icon.classList.toggle('active');
+        });
+    });
+});
+
+      document.addEventListener('DOMContentLoaded', () => {
         const heartIcon = document.querySelector('.heart-icon');
     
         heartIcon.addEventListener('click', function (event) {
@@ -286,6 +302,33 @@
             this.classList.toggle('active'); // Toggle the active class
         });
     });
+    document.addEventListener('DOMContentLoaded', () => {
+    const heartIcon = document.querySelector('.heart-icon');
+
+    heartIcon.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default action of the anchor tag
+        this.classList.toggle('active'); // Toggle the active class
+    });
+
+    // Initialize cart count
+    let cartCount = 0;
+
+    // Function to update cart count
+    function updateCartCount() {
+        document.getElementById('cart-count').textContent = cartCount;
+    }
+
+    // Add event listeners to your 'Add to Cart' buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            cartCount++; // Increase cart count
+            updateCartCount(); // Update cart count display
+        });
+    });
+});
+
     </script>
+   
+    
 </body>
 </html>

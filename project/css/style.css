@@ -96,6 +96,10 @@ header .icons a {
 header .icons a:hover {
     color: var(--pink);
 }
+header .icons {
+    display: flex;
+    align-items: center;
+}
 
 .heart-icon {
     color: initial; /* Default color */
@@ -105,6 +109,38 @@ header .icons a:hover {
 .heart-icon.active {
     color: var(--pink); /* Color when active */
 }
+
+.icons a {
+    position: relative;
+    font-size: 2.5rem;
+    color: var(--dark-gray);
+    margin-left: 1rem;
+}
+
+.icons a:hover {
+    color: var(--pink);
+}
+
+#cart-count {
+    position: absolute;
+    top: -0.2rem;
+    right: -0.2rem;
+    background: var(--pink);
+    color: #fff;
+    border-radius: 50%;
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart{
+    cursor: pointer;
+}
+
+
 
 header #toggler {
     display: none;
